@@ -1,0 +1,39 @@
+.env
+.DS_Store
+
+# Backend node
+
+/matrix-statitics-api/node_modules
+/matrix-statitics-api/.env
+/matrix-statitics-api/.DS_Store
+
+# Backend go
+
+/qr-factorization-api/.env
+
+# Front
+
+/interseguro/qr-factorization-ui/logs
+/interseguro/qr-factorization-ui/*.log
+/interseguro/qr-factorization-ui/npm-debug.log*
+/interseguro/qr-factorization-ui/yarn-debug.log*
+/interseguro/qr-factorization-ui/yarn-error.log*
+/interseguro/qr-factorization-ui/pnpm-debug.log*
+/interseguro/qr-factorization-ui/lerna-debug.log*
+
+/interseguro/qr-factorization-ui/node_modules
+/interseguro/qr-factorization-ui/dist
+/interseguro/qr-factorization-ui/dist-ssr
+/interseguro/qr-factorization-ui/*.local
+
+/interseguro/qr-factorization-ui/.vscode/*
+/interseguro/qr-factorization-ui/!.vscode/extensions.json
+/interseguro/qr-factorization-ui/.idea
+/interseguro/qr-factorization-ui/.DS_Store
+/interseguro/qr-factorization-ui/*.suo
+/interseguro/qr-factorization-ui/*.ntvs*
+/interseguro/qr-factorization-ui/*.njsproj
+/interseguro/qr-factorization-ui/*.sln
+/interseguro/qr-factorization-ui/*.sw?
+
+/interseguro/qr-factorization-ui/.env

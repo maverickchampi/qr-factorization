@@ -1,0 +1,65 @@
+###
+POST http://localhost:3011/api/v1/statistics
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SHpPGgebusXabhfsBN0hCZ2xyGdBnvL5cPDCAnxHm58
+
+{
+  "q": [
+    [0.6, 0.8],
+    [0.8, -0.6]
+  ],
+  "r": [
+    [5.0, 2.0],
+    [0.0, 3.0]
+  ]
+}
+
+###
+POST http://localhost:3011/api/v1/statistics
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SHpPGgebusXabhfsBN0hCZ2xyGdBnvL5cPDCAnxHm58
+
+{
+  "q": [
+    [0, 0],
+    [0, 5]
+  ],
+  "r": [
+    [0, 0],
+    [0, 9]
+  ]
+}
+
+###
+POST http://localhost:3011/api/v1/statistics
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SHpPGgebusXabhfsBN0hCZ2xyGdBnvL5cPDCAnxHm58
+
+{
+  "q": [
+    [1, 0],
+    [0, 2]
+  ],
+  "r": [
+    [3, 7],
+    [0, 4]
+  ]
+}
+
+###
+POST http://localhost:3011/api/v1/statistics
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SHpPGgebusXabhfsBN0hCZ2xyGdBnvL5cPDCAnxHm58
+
+{
+  "q": [
+    [5, -1],
+    [0, 2]
+  ],
+  "r": [
+    [0, 0],
+    [0, 4]
+  ]
+}
+
+###

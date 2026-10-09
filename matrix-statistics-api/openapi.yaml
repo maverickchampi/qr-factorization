@@ -1,0 +1,189 @@
+openapi: 3.0.3
+info:
+  title: Matrix Statistics API
+  description: API to calculate matrix statistics
+  version: 1.0.0
+  contact:
+    name: API Support
+servers:
+  - url: http://localhost:3011
+    description: Local development server
+tags:
+  - name: Statistics
+security:
+  - BearerAuth: []
+paths:
+  /api/v1/statistics:
+    post:
+      tags:
+        - Statistics
+      summary: Calculates global statistics for two matrices
+      description: |
+        Receives two numeric matrices 'q' and 'r' (two-dimensional arrays of numbers),
+        calculates the maximum, minimum, average, and sum of all their values,
+        and determines whether each matrix is diagonal (elements outside the main diagonal
+        equal to 0, evaluated with i === j).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QRMatrices'
+            examples:
+              example_2x2:
+                summary: 2x2 matrices with float values
+                value:
+                  q:
+                    - [0.6, 0.8]
+                    - [0.8, -0.6]
+                  r:
+                    - [5.0, 2.0]
+                    - [0.0, 3.0]
+              example_diagonal:
+                summary: Diagonal matrices
+                value:
+                  q:
+                    - [1.0, 0.0]
+                    - [0.0, 2.0]
+                  r:
+                    - [3.0, 0.0]
+                    - [0.0, 4.0]
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatrixStatsResponse'
+              examples:
+                success_2x2:
+                  summary: Statistics for the 2x2 example
+                  value:
+                    success: true
+                    data:
+                      max: 5.0
+                      min: -0.6
+                      average: 1.45
+                      sum: 11.6
+                      length: 8
+                      isDiagonal:
+                        q: false
+                        r: false
+                success_diagonal:
+                  summary: Statistics for diagonal matrices
+                  value:
+                    success: true
+                    data:
+                      max: 4.0
+                      min: 0.0
+                      average: 1.25
+                      sum: 10.0
+                      length: 8
+                      isDiagonal:
+                        q: true
+                        r: true
+        '400':
+          description: Structural validation error (Zod)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: VALIDATION_ERROR
+        '401':
+          description: JWT token missing or invalid (CustomError)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                success: false
+                message: INVALID_SESSION
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    QRMatrices:
+      type: object
+      required:
+        - q
+        - r
+      additionalProperties: false
+      properties:
+        q:
+          type: array
+          minItems: 1
+          items:
+            type: array
+            items:
+              type: number
+        r:
+          type: array
+          minItems: 1
+          items:
+            type: array
+            items:
+              type: number
+      description: Object containing two two-dimensional numeric matrices (number[][])
+    MatrixStatsResponse:
+      type: object
+      required:
+        - success
+        - data
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          required:
+            - max
+            - min
+            - average
+            - sum
+            - length
+            - isDiagonal
+          properties:
+            max:
+              type: number
+              example: 5.0
+            min:
+              type: number
+              example: -0.6
+            average:
+              type: number
+              example: 1.45
+            sum:
+              type: number
+              example: 11.6
+            length:
+              type: integer
+              example: 8
+            isDiagonal:
+              type: object
+              required:
+                - q
+                - r
+              properties:
+                q:
+                  type: boolean
+                  example: false
+                r:
+                  type: boolean
+                  example: false
+    ErrorResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          example: false
+        message:
+          type: string
+          example: INVALID_SESSION
