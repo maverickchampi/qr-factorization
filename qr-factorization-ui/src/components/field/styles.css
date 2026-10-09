@@ -1,0 +1,54 @@
+.field {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-bottom: 7px;
+}
+
+.field-control {
+  position: relative;
+  display: block;
+}
+
+.field-control input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface-2);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.field-control input::placeholder {
+  color: var(--text-faint);
+}
+
+.field-control input:hover {
+  border-color: var(--border-strong);
+}
+
+.field-control input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.16);
+}
+
+.field-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-faint);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}

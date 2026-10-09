@@ -1,0 +1,121 @@
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --surface-2: #f7f6f3;
+  --border: #e8e5de;
+  --border-strong: #dcd8cf;
+  --text: #45413a;
+  --text-soft: #6f6a61;
+  --text-faint: #a09a8f;
+  --ink: #211d17;
+  --accent: #4f46e5;
+  --accent-strong: #4338ca;
+  --accent-2: #7c3aed;
+  --teal: #0d9488;
+  --amber: #d97706;
+  --pink: #db2777;
+  --danger: #dc2626;
+  --ok: #059669;
+  --card-shadow: 0 1px 2px rgba(33, 29, 23, 0.04),
+    0 8px 24px -18px rgba(33, 29, 23, 0.16);
+  --glow-1: rgba(79, 70, 229, 0.07);
+  --glow-2: rgba(13, 148, 136, 0.06);
+
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+
+  color-scheme: light;
+  font-family: var(--sans);
+  color: var(--text);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="dark"] {
+  --bg: #131319;
+  --surface: #1c1c25;
+  --surface-2: #23232e;
+  --border: #2b2b37;
+  --border-strong: #3a3a49;
+  --text: #b8b6c2;
+  --text-soft: #8f8d9d;
+  --text-faint: #6b6978;
+  --ink: #e9e7ee;
+  --accent: #6d68f5;
+  --accent-strong: #8b86ff;
+  --accent-2: #8b5cf6;
+  --teal: #14b8a6;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.35),
+    0 10px 28px -18px rgba(0, 0, 0, 0.65);
+  --glow-1: rgba(109, 104, 245, 0.12);
+  --glow-2: rgba(20, 184, 166, 0.08);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(1000px 420px at 15% -10%, var(--glow-1), transparent 60%),
+    radial-gradient(900px 380px at 95% -5%, var(--glow-2), transparent 60%),
+    var(--bg);
+  min-height: 100svh;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    fill 0.25s ease,
+    stroke 0.25s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+}
