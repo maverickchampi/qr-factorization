@@ -3,9 +3,9 @@
 
 # Backend node
 
-/matrix-statitics-api/node_modules
-/matrix-statitics-api/.env
-/matrix-statitics-api/.DS_Store
+/matrix-statistics-api/node_modules
+/matrix-statistics-api/.env
+/matrix-statistics-api/.DS_Store
 
 # Backend go
 
