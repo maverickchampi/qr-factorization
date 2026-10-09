@@ -1,0 +1,10 @@
+###
+POST http://localhost:3010/api/v1/factorization
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE3OTE0OTc2NTR9.bAglVN3oDB-6ZwKBtmG9U2N3xDoD7DpdE8mPVKhBCEc
+
+{
+  "matrix": [[1, 2, 3], [4, 5, 6]]
+}
+
+###

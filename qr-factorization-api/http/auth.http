@@ -1,0 +1,15 @@
+###
+POST http://localhost:3010/api/v1/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "admin"
+}
+
+###
+GET http://localhost:3010/api/v1/validate
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJleHAiOjE3OTE0OTUyMTB9.m-Pzo0ndy4V3_6oY1tNKLPMiBBjGwLza1ikwTPmTHls
+
+###

@@ -1,0 +1,13 @@
+.env
+bin
+build
+dist
+vendor
+.git
+.gitignore
+Dockerfile*
+docker-compose*
+*.log
+.vscode
+.idea
+.DS_Store
