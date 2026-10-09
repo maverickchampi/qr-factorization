@@ -1,0 +1,52 @@
+name: app-qr-factorization
+
+services:
+  qr-factorization-ui:
+    build:
+      context: ./qr-factorization-ui
+      dockerfile: Dockerfile
+      args:
+        VITE_API_AUTH: ${VITE_API_AUTH}
+        VITE_API_STATS: ${VITE_API_STATS}
+    ports:
+      - "5173:5173"
+    depends_on:
+      - qr-factorization-api
+      - matrix-statistics-api
+    networks:
+      - app-net
+    restart: unless-stopped
+
+  qr-factorization-api:
+    build:
+      context: ./qr-factorization-api
+      dockerfile: Dockerfile
+    environment:
+      PORT: ${PORT_GO}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN}
+      JWT_SECRET: ${JWT_SECRET}
+      API_EMAIL: ${API_EMAIL}
+      API_PASSWORD: ${API_PASSWORD}
+    ports:
+      - "${PORT_GO}:${PORT_GO}"
+    networks:
+      - app-net
+    restart: unless-stopped
+
+  matrix-statistics-api:
+    build:
+      context: ./matrix-statistics-api
+      dockerfile: Dockerfile
+    environment:
+      PORT: ${PORT_NODE}
+      ALLOWED_ORIGIN: ${ALLOWED_ORIGIN}
+      JWT_SECRET: ${JWT_SECRET}
+    ports:
+      - "${PORT_NODE}:${PORT_NODE}"
+    networks:
+      - app-net
+    restart: unless-stopped
+
+networks:
+  app-net:
+    driver: bridge
